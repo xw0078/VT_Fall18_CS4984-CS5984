@@ -23,20 +23,28 @@ We provide a Docker image that contains a full development environment with Arch
 
 ### Install Docker CE
 
-You will install Docker CE version on your local environment.
-[Docker on Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-[Docker on MacOS](https://docs.docker.com/docker-for-mac/install/)
-[Docker on MacOS](https://docs.docker.com/docker-for-windows/install/)
+You will install Docker CE version on your local environment:
+[Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/),
+[MacOS](https://docs.docker.com/docker-for-mac/install/),
+[MacOS](https://docs.docker.com/docker-for-windows/install/)
 
 ### Deploy the Container
 You will perform various docker operations in command line.
-[Docker command line basics](https://docs.docker.com/engine/reference/commandline/cli/#examples)
+Check [Docker command line basics](https://docs.docker.com/engine/reference/commandline/cli/#examples) for more details.
 
 1. Pull the container image from Docker image hub
+
+
    `pull vt_dlrl/fall18_cs4984-cs5984:latest`
+
+
 2. Start the container 
+
    `docker run -d -p 8082:8080 --rm -v ~/docker/cs5984/share_dir:/share_dir -v ~/docker/cs5984/logs:/logs -v ~/docker/cs5984/notebook:/notebook -e ZEPPELIN_LOG_DIR='/logs' -e ZEPPELIN_NOTEBOOK_DIR='/notebook' --name cs5984 vt_dlrl/fall18_cs4984-cs5984`
+
+
 3. Access Zeppelin Website through following url in your browser:
+
    `http://localhost:8082`
 
 You can consider the container as a sub Linux system inside your current OS. You can access the sub system through following commands:
@@ -76,12 +84,18 @@ We have also prepared a Zeppelin based sample code, find our sample code in Zepp
 
 Other than running code in Zeppelin, you can also run your code through `spark-shell` within Docker. (This is recommended before you run any code on DLRL cluster) We have prepared one example `ArchiveSpark_HtmlText_extraction.scala` in `share_dir`.
 
-1. Package your code into one scala script: `ArchiveSpark_HtmlText_extraction.scala`
+1. Package your code into one scala script:
+
+`ArchiveSpark_HtmlText_extraction.scala`
+
 2. Copy/Move your script to `~/docker/cs5984/share_dir/`
 3. Access Docker shell:
+
    `docker ps`
    `docker exec -it your_docker_id bash`
+
 4. Run spark-shell to execute your script:
+
    `/archive_spark/spark-2.2.1-bin-hadoop2.7/bin/spark-shell -i /share_dir/ArchiveSpark_HtmlText_extraction.scala --files /archive_spark/archivespark_dlrl/libs/en-sent.bin --jars /archive_spark/archivespark_dlrl/libs/archivespark-assembly-2.7.6.jar,/archive_spark/archivespark_dlrl/libs/archivespark-assembly-2.7.6-deps.jar,/archive_spark/archivespark_dlrl/libs/stanford-corenlp-3.5.1.jar,/archive_spark/archivespark_dlrl/libs/opennlp-tools-1.9.0.jar `
 
 `--files` and `--jars` options will load all basic dependencies you would need for your script. You can add more dependencies as you need for your code.
@@ -90,7 +104,9 @@ Other than running code in Zeppelin, you can also run your code through `spark-s
 
 After testing and validating your code, you can package your code into one Scala script file and run it on DLRL cluster through following commands: 
 1. Enable JAVA8 env:
+
 `export JAVA_HOME=/usr/java/jdk1.8.0_171/`
+
 2. Execute Scala Scripts:
 
 
