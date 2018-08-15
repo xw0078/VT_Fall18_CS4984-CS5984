@@ -42,8 +42,7 @@ Check [Docker command line basics](https://docs.docker.com/engine/reference/comm
 
    `docker run -d -p 8082:8080 --rm -v ~/docker/cs5984/share_dir:/share_dir -v ~/docker/cs5984/logs:/logs -v ~/docker/cs5984/notebook:/notebook -e ZEPPELIN_LOG_DIR='/logs' -e ZEPPELIN_NOTEBOOK_DIR='/notebook' --name cs5984 vt_dlrl/fall18_cs4984-cs5984`
 
-
-3. Access Zeppelin Website through following url in your browser:
+3. Access Zeppelin Website through following url in your browser (the service might take several minutes to boot up):
 
    `http://localhost:8082`
 
@@ -74,11 +73,17 @@ Refer [Zeppelin Official Website](https://zeppelin.apache.org/) for detailed doc
 
 #### Sample Code
 
-ArchiveSpark provides some good [Documentations and Recipies](https://github.com/helgeho/ArchiveSpark/blob/master/docs/README.md) that you can refer. Please check this site first if you encounter any issue with using ArchiveSpark.
+ArchiveSpark provides some good [Documentations and Recipies](https://github.com/helgeho/ArchiveSpark/blob/master/docs/README.md) that you can refer. Please check this site first if you encounter any issue using ArchiveSpark.
 
 We have also prepared a Zeppelin based sample code, find our sample code in Zeppelin here:
 
 <img src="./doc/img_1.png " width="250">
+
+The notebook source file is also available in this repository:
+
+`/sample_notebooks/ArchiveSpark_HtmlText_extraction.json`
+
+You can import the notebook to Zeppelin if needed.
 
 #### Spark-Shell Testing in Docker
 
