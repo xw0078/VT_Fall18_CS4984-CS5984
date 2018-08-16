@@ -1,8 +1,8 @@
 # Supplements
 
-This repositary contains supplement information for course CS4984/CS5984: Big Text Summarization, Fall18, Virginia Tech.
+This repository contains supplemental information for course CS4984/CS5984: Big Data Text Summarization, Fall2018, Virginia Tech.
 
-If you encounter any question or issue, please check relative documentations first. For more questions, you can create an issue in this GitHub page:
+If you encounter any question or issue, please check relevant documentation first. For more questions, you can create an issue in this GitHub page:
 
 <img src="./doc/img_2.png " width="250">
 
