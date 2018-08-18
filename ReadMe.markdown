@@ -2,6 +2,10 @@
 
 This repository contains supplemental information for course CS4984/CS5984: Big Data Text Summarization, Fall2018, Virginia Tech.
 
+
+
+## Questions and Issues
+
 If you encounter any question or issue, please check relevant documentation first. For more questions, you can create an issue in this GitHub page:
 
 <img src="./doc/img_2.png " width="250">
