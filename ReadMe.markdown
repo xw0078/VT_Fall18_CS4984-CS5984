@@ -104,9 +104,11 @@ Other than running code in Zeppelin, you can also run your code through `spark-s
 
 1. Package your code into one scala script:
 
-`ArchiveSpark_HtmlText_extraction.scala`
+    `ArchiveSpark_HtmlText_extraction.scala`
 
-2. Copy/Move your script to `~/docker/cs5984/share_dir/`
+2. Copy/Move your script to
+   `~/docker/cs5984/share_dir/`
+
 3. Access Docker shell:
 
    `docker ps`
@@ -114,9 +116,11 @@ Other than running code in Zeppelin, you can also run your code through `spark-s
 
 4. Run spark-shell to execute your script:
 
-   `/archive_spark/spark-2.2.1-bin-hadoop2.7/bin/spark-shell -i /share_dir/ArchiveSpark_HtmlText_extraction.scala --files /archive_spark/archivespark_dlrl/libs/en-sent.bin --jars /archive_spark/archivespark_dlrl/libs/archivespark-assembly-2.7.6.jar,/archive_spark/archivespark_dlrl/libs/archivespark-assembly-2.7.6-deps.jar,/archive_spark/archivespark_dlrl/libs/stanford-corenlp-3.5.1.jar,/archive_spark/archivespark_dlrl/libs/opennlp-tools-1.9.0.jar `
+    ```/archive_spark/spark-2.2.1-bin-hadoop2.7/bin/spark-shell -i /share_dir/ArchiveSpark_HtmlText_extraction.scala --files /archive_spark/archivespark_dlrl/libs/en-sent.bin --jars /archive_spark/archivespark_dlrl/libs/archivespark-assembly-2.7.6.jar,/archive_spark/archivespark_dlrl/libs/archivespark-assembly-2.7.6-deps.jar,/archive_spark/archivespark_dlrl/libs/stanford-corenlp-3.5.1.jar,/archive_spark/archivespark_dlrl/libs/opennlp-tools-1.9.0.jar ```
 
-`--files` and `--jars` options will load all necessary dependencies you would need for your script. You can add more dependencies as you need for your code.
+ `-i` option points to the path of your script
+
+ `--files` and `--jars` options will load all necessary dependencies you would need for your script. You can add more dependencies as you need for your code.
 
 ### Real Job on Cluster
 
@@ -128,7 +132,7 @@ After testing and validating your code, you can package your code into one Scala
 
 2. Execute Scala Scripts:
 
-
+```spark2-shell -i /your/script.scala --files /home/public/cs4984_cs5984_f18/unlabeled/lib/en-sent.bin --jars /home/public/cs4984_cs5984_f18/unlabeled/lib/archivespark-assembly-2.7.6.jar,/home/public/cs4984_cs5984_f18/unlabeled/lib/archivespark-assembly-2.7.6-deps.jar,/home/public/cs4984_cs5984_f18/unlabeled/lib/stanford-corenlp-3.5.1.jar,/home/public/cs4984_cs5984_f18/unlabeled/lib/opennlp-tools-1.9.0.jar ```
 
 ### Best Practice
 
