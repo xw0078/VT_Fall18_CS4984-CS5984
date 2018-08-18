@@ -14,6 +14,9 @@ If you encounter any question or issue, please check relevant documentation firs
 
 <img src="./doc/img_2.png " width="250">
 
+## Index
+[ArchiveSpark](##ArchiveSpark)
+
 ## ArchiveSpark
 
 "An Apache Spark framework for easy data processing, extraction as well as derivation for archival collections." - helgeho
@@ -142,3 +145,10 @@ Before you run the code on DLRL cluster, here is the recommended procedures for 
 2. If your dataset is big or process is heavy: sample your dataset first for fast testing.
 3. Package your script and do Spark-Shell Testing in Docker
 4. Load your script to DLRL cluster and run it
+
+## Spark and NLP
+
+Spark provides packages for NLP related tasks:
+* [MLib](https://spark.apache.org/docs/2.2.0/ml-guide.html) package for Spark with Scala
+* [PySpark MLib](http://spark.apache.org/docs/2.2.0/api/python/pyspark.mllib.html) package for Spark with Python
+* [SparkNLP](https://nlp.johnsnowlabs.com/components.html) package for Scala and Python
