@@ -15,6 +15,12 @@ In this class, we will utilize ArchiveSpark to process our web archive collectio
 
 In following sections, you will find information about local usage and test with our Docker image; Instructions for running ArchiveSpark job on DLRL cluster.
 
+### Some Scala and Spark Tutorials
+
+[Top Tutorials To Learn Scala](https://medium.com/quick-code/top-tutorials-to-learn-scala-3a221bf4ef85)
+
+[Spark SQL, DataFrames and Datasets Guide](https://spark.apache.org/docs/2.2.0/sql-programming-guide.html)
+
 ## Local Usage with Docker
 
 We provide a Docker image that contains a full development environment with ArchiveSpark. Check following links for detailed information about Docker.
