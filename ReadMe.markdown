@@ -15,7 +15,7 @@ If you encounter any question or issue, please check relevant documentation firs
 <img src="./doc/img_2.png " width="250">
 
 ## Index
-[ArchiveSpark](##ArchiveSpark)
+[ArchiveSpark](#ArchiveSpark)
 
 ## ArchiveSpark
 
