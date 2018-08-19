@@ -151,6 +151,8 @@ Before you run the code on DLRL cluster, here is the recommended procedures for 
 
 If you want to work with Python with Spark (PySpark), find the sample code we provide in Zeppelin: `SampleCode_PySpark`
 
+A cool thing: you can [exchange variable between Spark and PySpark](https://www.zepl.com/viewer/notebooks/bm90ZTovL21vb24vM2E0ZTk5Y2U1ZmNiNGQ3NGE1YTZkZTMzMTQxNjE1NWYvbm90ZS5qc29u) in Zeppelin.
+
 ## Spark and NLP <a id="nlp"></a>
 
 Spark provides packages for NLP related tasks, check following resources:
