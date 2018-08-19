@@ -22,10 +22,6 @@ val pages = records.filter(r => r.mime == "text/html" && r.status == 200) // ext
 val earliest = pages.distinctValue(_.surtUrl) {(a, b) => if (a.time < b.time) a else b} // filter out same urls, pick the latest snap
 val enriched = earliest.enrich(HtmlText) // Enrich with Htmltext
 
-val Terms = LowerCase.of(HtmlText).mapMulti("terms") { text: String => text.split("\\W+").distinct } // Define Terms enrichment within HTML body
-val Title = HtmlText.of(Html.first("title")) // Define Title enrichment within HTML body
-val enriched = earliest.enrich(Terms).enrich(Title) // Enrich with Terms and Title
-
 // get Array of elements: URL, timestamp, HtmlText
 val extracted = enriched.map(r => {
       val text = r.valueOrElse(HtmlText, "").replaceAll("[\\t\\n]", " ")
