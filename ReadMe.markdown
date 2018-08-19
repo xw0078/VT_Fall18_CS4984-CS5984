@@ -21,6 +21,7 @@ If you encounter any question or issue, please check relevant documentation firs
 * [Zeppelin is Your Playground](#Zeppelin)
 * [Real Job on Cluster](#cluster)
 * [Best Practice](#best)
+* [Work with PySpark](#pyspark)
 * [Spark and NLP](#nlp)
 
 ## ArchiveSpark <a id="ArchiveSpark"></a>
@@ -48,26 +49,22 @@ Be aware Docker works as a Virtual Machine in MacOS and Windows. You can configu
 
 ### Install Docker CE
 
-You will install Docker CE version on your local environment:
-[Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/),
-[MacOS](https://docs.docker.com/docker-for-mac/install/),
+Install Docker CE version on your local environment:
+[Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+[MacOS](https://docs.docker.com/docker-for-mac/install/)
 [MacOS](https://docs.docker.com/docker-for-windows/install/)
 
 ### Deploy Docker Container
 
-You will perform various docker operations in the command line.
-Check [Docker command line basics](https://docs.docker.com/engine/reference/commandline/cli/#examples) for more details.
+Check [Docker command line basics](https://docs.docker.com/engine/reference/commandline/cli/#examples) for various docker operations in the command line.
 
 1. Pull the container image from Docker image hub
-
-    `pull vt_dlrl/fall18_cs4984-cs5984:latest`
+    `pull nytfox/fall18_cs4984-cs5984:latest`
 
 2. Start the container
-
     `docker run -d -p 8082:8080 --rm -v ~/docker/cs5984/share_dir:/share_dir -v ~/docker/cs5984/logs:/logs -v ~/docker/cs5984/notebook:/notebook -e ZEPPELIN_LOG_DIR='/logs' -e ZEPPELIN_NOTEBOOK_DIR='/notebook' --name cs5984 vt_dlrl/fall18_cs4984-cs5984`
 
 3. Access Zeppelin Website through the following URL in your browser (the service might take several minutes to boot up):
-
     `http://localhost:8082`
 
 Consider the Docker container as a sub-Linux system inside your current OS where you can access the subsystem through following commands:
@@ -97,7 +94,7 @@ Refer [Zeppelin Official Website](https://zeppelin.apache.org/) for detailed doc
 
 ### Sample Code
 
-We have also prepared a Zeppelin based sample code, find our sample code in Zeppelin here:
+We have prepared a Zeppelin based sample notebook, find our sample code in Zeppelin here:
 
 <img src="./doc/img_1.png " width="250">
 
@@ -105,10 +102,9 @@ The notebook source file is also available in this repository:
 
 `/sample_notebooks/ArchiveSpark_HtmlText_extraction.json`
 
-You can import the notebook to Zeppelin if needed.
+You can import the notebook to Zeppelin as needed.
 
 ArchiveSpark Github page also provides some good [Documentations and Recipies](https://github.com/helgeho/ArchiveSpark/blob/master/docs/README.md)
- 
 
 ### Spark-Shell Testing in Docker
 
@@ -126,7 +122,6 @@ Other than running code in Zeppelin, you can also run your code through `spark-s
    `docker exec -it your_docker_id bash`
 
 4. Run spark-shell to execute your script:
-
     ```/archive_spark/spark-2.2.1-bin-hadoop2.7/bin/spark-shell -i /share_dir/ArchiveSpark_HtmlText_extraction.scala --files /archive_spark/archivespark_dlrl/libs/en-sent.bin --jars /archive_spark/archivespark_dlrl/libs/archivespark-assembly-2.7.6.jar,/archive_spark/archivespark_dlrl/libs/archivespark-assembly-2.7.6-deps.jar,/archive_spark/archivespark_dlrl/libs/stanford-corenlp-3.5.1.jar,/archive_spark/archivespark_dlrl/libs/opennlp-tools-1.9.0.jar ```
 
  `-i` option points to the path of your script
@@ -152,9 +147,14 @@ Before you run the code on DLRL cluster, here is the recommended procedures for 
 3. Package your script and do Spark-Shell Testing in Docker
 4. Load your script to DLRL cluster and run it
 
+## Work with PySpark <a id="pyspark"></a>
+
+If you want to work with Python with Spark (PySpark), find the sample code we provide in Zeppelin: `SampleCode_PySpark`
+
 ## Spark and NLP <a id="nlp"></a>
 
 Spark provides packages for NLP related tasks, check following resources:
 * [MLib](https://spark.apache.org/docs/2.2.0/ml-guide.html) package for Spark with Scala
 * [PySpark MLib](http://spark.apache.org/docs/2.2.0/api/python/pyspark.mllib.html) package for Spark with Python
 * [SparkNLP](https://nlp.johnsnowlabs.com/components.html) package for Scala and Python
+

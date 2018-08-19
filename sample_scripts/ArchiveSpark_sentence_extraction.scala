@@ -52,6 +52,4 @@ val cleaned_df = cleaned.toDF("URL", "Timestamp","HtmlText", "Sentences") // con
 
 cleaned_df.repartition(1).write.mode("overwrite").format("json").save("/share_dir/sample_output/sentences") // export data to your local path
 
-:q // automatically quit scala shell after finishing
-
 
