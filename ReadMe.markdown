@@ -2,7 +2,8 @@
 
 Supplemental information on ArchiveSpark for course CS4984/CS5984: Big Data Text Summarization, Fall2018, Virginia Tech.
 
-Things you will learn about Github, Docker, ArchiveSpark, Zeppelin, Spark.
+Things you will learn about:
+Github, Docker, Zeppelin, ArchiveSpark, Spark.
 
 ## Description
 
@@ -14,10 +15,15 @@ If you encounter any question or issue, please check relevant documentation firs
 
 <img src="./doc/img_2.png " width="250">
 
-## Index
-[ArchiveSpark](#ArchiveSpark)
+## Table of Conetents
+* [ArchiveSpark](#ArchiveSpark)
+* [Docker: Your Local Test Environment](#Docker)
+* [Zeppelin is Your Playground](#Zeppelin)
+* [Real Job on Cluster](#cluster)
+* [Best Practice](#best)
+* [Spark and NLP](#nlp)
 
-## ArchiveSpark
+## ArchiveSpark <a id="ArchiveSpark"></a>
 
 "An Apache Spark framework for easy data processing, extraction as well as derivation for archival collections." - helgeho
 [ArchiveSpark Official GitHub page](https://github.com/helgeho/ArchiveSpark)
@@ -32,9 +38,11 @@ In the following sections, you will find information about local usage and test 
 
 [Spark SQL, DataFrames and Datasets Guide](https://spark.apache.org/docs/2.2.0/sql-programming-guide.html)
 
-## Docker: Your Local Test Environment
+## Docker: Your Local Test Environment <a id="Docker"></a>
 
 We provide a Docker image that contains a full development environment with ArchiveSpark. Check following links for detailed information about Docker.
+
+Be aware Docker works as a Virtual Machine in MacOS and Windows. You can configure the computer resources allocations(CPU/Memory) to speed up/down your task. In Linux systems, Docker works as a native application.
 
 [What is docker?](https://www.docker.com/resources/what-container)
 
@@ -62,7 +70,7 @@ Check [Docker command line basics](https://docs.docker.com/engine/reference/comm
 
     `http://localhost:8082`
 
-You can consider the container as a sub-Linux system inside your current OS. You can access the subsystem through following commands:
+Consider the Docker container as a sub-Linux system inside your current OS where you can access the subsystem through following commands:
     `docker ps`
     `docker exec -it your_docker_id bash`
 
@@ -81,15 +89,13 @@ Please refer Docker documentation for all other detailed information for the run
 * If you think you broke the container, stop it and restart it. Every time you restart the container, it will start from the initial status:
     `docker stop your_container_id`
 
-### Zeppelin is Your Playground
+## Zeppelin is Your Playground <a id="Zeppelin"></a>
 
 Zeppelin is a notebook environment (similar to Jupyter Notebook) upon Spark where you can run, test your code all within Zeppelin. We have integrated AchiveSpark in our Docker environment so that you can play around with it. The primary language is Scala. (Python is also available if needed)
 
 Refer [Zeppelin Official Website](https://zeppelin.apache.org/) for detailed documentation.
 
-#### Sample Code
-
-ArchiveSpark provides some good [Documentations and Recipies](https://github.com/helgeho/ArchiveSpark/blob/master/docs/README.md) that you can refer. Please check this site first if you encounter any issue using ArchiveSpark.
+### Sample Code
 
 We have also prepared a Zeppelin based sample code, find our sample code in Zeppelin here:
 
@@ -101,7 +107,10 @@ The notebook source file is also available in this repository:
 
 You can import the notebook to Zeppelin if needed.
 
-#### Spark-Shell Testing in Docker
+ArchiveSpark Github page also provides some good [Documentations and Recipies](https://github.com/helgeho/ArchiveSpark/blob/master/docs/README.md)
+ 
+
+### Spark-Shell Testing in Docker
 
 Other than running code in Zeppelin, you can also run your code through `spark-shell` within Docker. (This is recommended before you run any code on DLRL cluster) We have prepared one example `ArchiveSpark_HtmlText_extraction.scala` in `share_dir`.
 
@@ -113,7 +122,6 @@ Other than running code in Zeppelin, you can also run your code through `spark-s
    `~/docker/cs5984/share_dir/`
 
 3. Access Docker shell:
-
    `docker ps`
    `docker exec -it your_docker_id bash`
 
@@ -125,19 +133,17 @@ Other than running code in Zeppelin, you can also run your code through `spark-s
 
  `--files` and `--jars` options will load all necessary dependencies you would need for your script. You can add more dependencies as you need for your code.
 
-### Real Job on Cluster
+## Real Job on Cluster <a id="cluster"></a>
 
 After testing and validating your code, you can package your code into one Scala script file and run it on DLRL cluster through following commands:
 
 1. Enable JAVA8 env:
-
-`export JAVA_HOME=/usr/java/jdk1.8.0_171/`
+    `export JAVA_HOME=/usr/java/jdk1.8.0_171/`
 
 2. Execute Scala Scripts:
+    `spark2-shell -i /your/script.scala --files /home/public/cs4984_cs5984_f18/unlabeled/lib/en-sent.bin --jars /home/public/cs4984_cs5984_f18/unlabeled/lib/archivespark-assembly-2.7.6.jar,/home/public/cs4984_cs5984_f18/unlabeled/lib/archivespark-assembly-2.7.6-deps.jar,/home/public/cs4984_cs5984_f18/unlabeled/lib/stanford-corenlp-3.5.1.jar,/home/public/cs4984_cs5984_f18/unlabeled/lib/opennlp-tools-1.9.0.jar `
 
-```spark2-shell -i /your/script.scala --files /home/public/cs4984_cs5984_f18/unlabeled/lib/en-sent.bin --jars /home/public/cs4984_cs5984_f18/unlabeled/lib/archivespark-assembly-2.7.6.jar,/home/public/cs4984_cs5984_f18/unlabeled/lib/archivespark-assembly-2.7.6-deps.jar,/home/public/cs4984_cs5984_f18/unlabeled/lib/stanford-corenlp-3.5.1.jar,/home/public/cs4984_cs5984_f18/unlabeled/lib/opennlp-tools-1.9.0.jar ```
-
-### Best Practice
+## Best Practice <a id="best"></a>
 
 Before you run the code on DLRL cluster, here is the recommended procedures for preparing your code:
 
@@ -146,9 +152,9 @@ Before you run the code on DLRL cluster, here is the recommended procedures for 
 3. Package your script and do Spark-Shell Testing in Docker
 4. Load your script to DLRL cluster and run it
 
-## Spark and NLP
+## Spark and NLP <a id="nlp"></a>
 
-Spark provides packages for NLP related tasks:
+Spark provides packages for NLP related tasks, check following resources:
 * [MLib](https://spark.apache.org/docs/2.2.0/ml-guide.html) package for Spark with Scala
 * [PySpark MLib](http://spark.apache.org/docs/2.2.0/api/python/pyspark.mllib.html) package for Spark with Python
 * [SparkNLP](https://nlp.johnsnowlabs.com/components.html) package for Scala and Python

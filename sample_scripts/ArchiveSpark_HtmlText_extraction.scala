@@ -33,4 +33,5 @@ val result_df = result.toDF("originalUrl","timestamp","title","text") // convert
 
 result_df.repartition(1).write.mode("overwrite").format("json").save("/shared_dir/sample_output/html_text_raw") // export data to your local path
 
+:q // automatically quit scala shell after finishing
 
