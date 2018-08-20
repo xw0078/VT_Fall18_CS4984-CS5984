@@ -8,8 +8,8 @@ import de.l3s.archivespark.specific.warc.enrichfunctions._
 
 
 // load data from local file system
-val warcPath = "/archive_spark/archivespark_dlrl/data/sample_data/warc"
-val cdxPath = "/archive_spark/archivespark_dlrl/data/sample_data/cdx"
+val warcPath = "/archive_spark/archivespark_dlrl/data/sample_data/warc" // be aware on DLRL cluster, this will be HDFS path
+val cdxPath = "/archive_spark/archivespark_dlrl/data/sample_data/cdx" // be aware on DLRL cluster, this will be HDFS path
 val records = ArchiveSpark.load(WarcCdxHdfsSpec(cdxPath,warcPath))
 
 val pages = records.filter(r => r.mime == "text/html" && r.status == 200) // extract valid webpages
@@ -31,5 +31,5 @@ val result = enriched.map( r => {
 
 val result_df = result.toDF("originalUrl","timestamp","title","text") // convert to DataFrame format inorder to export Json format and perform SQL queries as needed
 
-result_df.repartition(1).write.mode("overwrite").format("json").save("/shared_dir/sample_output/html_text_raw") // export data to your local path
+result_df.repartition(1).write.mode("overwrite").format("json").save("/shared_dir/sample_output/html_text_raw") // export data to your local path;be aware on DLRL cluster, this will be HDFS path
 

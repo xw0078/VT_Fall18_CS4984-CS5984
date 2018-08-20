@@ -14,8 +14,8 @@ import org.apache.spark.sql.{Row, SparkSession}
 
 
 // load data from local file system
-val warcPath = "/archive_spark/archivespark_dlrl/data/sample_data/warc"
-val cdxPath = "/archive_spark/archivespark_dlrl/data/sample_data/cdx"
+val warcPath = "/archive_spark/archivespark_dlrl/data/sample_data/warc" //be aware on DLRL cluster, this will be HDFS path
+val cdxPath = "/archive_spark/archivespark_dlrl/data/sample_data/cdx" //be aware on DLRL cluster, this will be HDFS path
 val records = ArchiveSpark.load(WarcCdxHdfsSpec(cdxPath,warcPath))
 
 val pages = records.filter(r => r.mime == "text/html" && r.status == 200) // extract valid webpages
@@ -46,6 +46,6 @@ val cleaned = extracted.mapPartitions(partition => {
 
 val cleaned_df = cleaned.toDF("URL", "Timestamp","HtmlText", "Sentences") // convert to DataFrame format
 
-cleaned_df.repartition(1).write.mode("overwrite").format("json").save("/share_dir/sample_output/sentences") // export data to your local path
+cleaned_df.repartition(1).write.mode("overwrite").format("json").save("/share_dir/sample_output/sentences") // export data to your local path;be aware on DLRL cluster, this will be HDFS path
 
 
