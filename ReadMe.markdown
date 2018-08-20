@@ -59,6 +59,7 @@ Install Docker CE version on your local environment:
 Check [Docker command line basics](https://docs.docker.com/engine/reference/commandline/cli/#examples) for various docker operations in the command line.
 
 1. Pull the container image from Docker image hub
+   
     `pull nytfox/fall18_cs4984-cs5984:latest`
 
 2. Start the container
