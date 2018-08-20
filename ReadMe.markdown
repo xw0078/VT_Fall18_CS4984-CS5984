@@ -63,12 +63,15 @@ Check [Docker command line basics](https://docs.docker.com/engine/reference/comm
     `pull nytfox/fall18_cs4984-cs5984:latest`
 
 2. Start the container
+   
     `docker run -d -p 8082:8080 --rm -v ~/docker/cs5984/share_dir:/share_dir -v ~/docker/cs5984/logs:/logs -v ~/docker/cs5984/notebook:/notebook -e ZEPPELIN_LOG_DIR='/logs' -e ZEPPELIN_NOTEBOOK_DIR='/notebook' --name cs5984 vt_dlrl/fall18_cs4984-cs5984`
 
 3. Access Zeppelin Website through the following URL in your browser (the service might take several minutes to boot up):
+   
     `http://localhost:8082`
 
 Consider the Docker container as a sub-Linux system inside your current OS where you can access the subsystem through following commands:
+
     `docker ps`
     `docker exec -it your_docker_id bash`
 
@@ -116,13 +119,16 @@ Other than running code in Zeppelin, you can also run your code through `spark-s
     `ArchiveSpark_HtmlText_extraction.scala`
 
 2. Copy/Move your script to
+   
    `~/docker/cs5984/share_dir/`
 
 3. Access Docker shell:
+   
    `docker ps`
    `docker exec -it your_docker_id bash`
 
 4. Run spark-shell to execute your script:
+   
     ```/archive_spark/spark-2.2.1-bin-hadoop2.7/bin/spark-shell -i /share_dir/ArchiveSpark_HtmlText_extraction.scala --files /archive_spark/archivespark_dlrl/libs/en-sent.bin --jars /archive_spark/archivespark_dlrl/libs/archivespark-assembly-2.7.6.jar,/archive_spark/archivespark_dlrl/libs/archivespark-assembly-2.7.6-deps.jar,/archive_spark/archivespark_dlrl/libs/stanford-corenlp-3.5.1.jar,/archive_spark/archivespark_dlrl/libs/opennlp-tools-1.9.0.jar ```
 
  `-i` option points to the path of your script
@@ -134,9 +140,11 @@ Other than running code in Zeppelin, you can also run your code through `spark-s
 After testing and validating your code, you can package your code into one Scala script file and run it on DLRL cluster through following commands:
 
 1. Enable JAVA8 env:
+
     `export JAVA_HOME=/usr/java/jdk1.8.0_171/`
 
 2. Execute Scala Scripts:
+
     `spark2-shell -i /your/script.scala --files /home/public/cs4984_cs5984_f18/unlabeled/lib/en-sent.bin --jars /home/public/cs4984_cs5984_f18/unlabeled/lib/archivespark-assembly-2.7.6.jar,/home/public/cs4984_cs5984_f18/unlabeled/lib/archivespark-assembly-2.7.6-deps.jar,/home/public/cs4984_cs5984_f18/unlabeled/lib/stanford-corenlp-3.5.1.jar,/home/public/cs4984_cs5984_f18/unlabeled/lib/opennlp-tools-1.9.0.jar `
 
 ## Best Practice <a id="best"></a>
