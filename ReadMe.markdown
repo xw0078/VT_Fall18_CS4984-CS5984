@@ -52,7 +52,6 @@ Be aware Docker works as a Virtual Machine in MacOS and Windows. You can configu
 Install Docker CE version on your local environment:
 [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 [MacOS](https://docs.docker.com/docker-for-mac/install/)
-[MacOS](https://docs.docker.com/docker-for-windows/install/)
 
 ### Install Docker for Windows 10
 
