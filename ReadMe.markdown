@@ -58,15 +58,17 @@ Install Docker CE version on your local environment:
 
 Check [Docker command line basics](https://docs.docker.com/engine/reference/commandline/cli/#examples) for various docker operations in the command line.
 
-1. Pull the container image from Docker image hub
+1. Get an account for Docker
+2. Login Docker: either through application or commandline
+3. Pull the container image from Docker image hub
    
     `pull nytfox/fall18_cs4984-cs5984:latest`
 
-2. Start the container
+4. Start the container
    
-    `docker run -d -p 8082:8080 --rm -v ~/docker/cs5984/share_dir:/share_dir -v ~/docker/cs5984/logs:/logs -v ~/docker/cs5984/notebook:/notebook -e ZEPPELIN_LOG_DIR='/logs' -e ZEPPELIN_NOTEBOOK_DIR='/notebook' --name cs5984 vt_dlrl/fall18_cs4984-cs5984`
+    `docker run -d -p 8082:8080 --rm -v ~/docker/cs5984/share_dir:/share_dir -v ~/docker/cs5984/logs:/logs -v ~/docker/cs5984/notebook:/notebook -e ZEPPELIN_LOG_DIR='/logs' -e ZEPPELIN_NOTEBOOK_DIR='/notebook' --name cs5984 nytfox/fall18_cs4984-cs5984`
 
-3. Access Zeppelin Website through the following URL in your browser (the service might take several minutes to boot up):
+5. Access Zeppelin Website through the following URL in your browser (the service might take several minutes to boot up):
    
     `http://localhost:8082`
 
@@ -98,15 +100,13 @@ Refer [Zeppelin Official Website](https://zeppelin.apache.org/) for detailed doc
 
 ### Sample Code
 
-We have prepared a Zeppelin based sample notebook, find our sample code in Zeppelin here:
-
-<img src="./doc/img_1.png " width="250">
-
-The notebook source file is also available in this repository:
+We have prepared a Zeppelin based sample notebook, the notebook source file is available in this repositary:
 
 `/sample_notebooks/ArchiveSpark_HtmlText_extraction.json`
 
-You can import the notebook to Zeppelin as needed.
+You can download import the notebook to Zeppelin through `import note`.
+
+<img src="./doc/img_1.png " width="250">
 
 ArchiveSpark Github page also provides some good [Documentations and Recipies](https://github.com/helgeho/ArchiveSpark/blob/master/docs/README.md)
 
