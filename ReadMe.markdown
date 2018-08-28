@@ -54,7 +54,27 @@ Install Docker CE version on your local environment:
 [MacOS](https://docs.docker.com/docker-for-mac/install/)
 [MacOS](https://docs.docker.com/docker-for-windows/install/)
 
-### Deploy Docker Container
+### Install Docker for Windows 10
+
+1. Install Docker toolbox from [here](https://docs.docker.com/toolbox/toolbox_install_windows/)
+2. Disable Hyper-V feature in your windows system, [tutorial here](https://ugetfix.com/ask/how-to-disable-hyper-v-in-windows-10/)
+3. Open Docker Quickstart Terminal (it will start an automatic set up)
+
+### Deploy Docker Container (Windows10 pro)
+
+1. In Docker Quickstart Terminal, start the container
+   
+    `docker run -d -p 8082:8080 --rm -v ~/docker/cs5984/share_dir:/share_dir -v ~/docker/cs5984/logs:/logs -v ~/docker/cs5984/notebook:/notebook -e ZEPPELIN_LOG_DIR='/logs' -e ZEPPELIN_NOTEBOOK_DIR='/notebook' --name cs5984 nytfox/fall18_cs4984-cs5984`
+
+2. check container ip address:
+   
+   `docker-machine ip default`
+
+3. Open your browser with:
+   
+   `yourDockerIP:8082`
+
+### Deploy Docker Container (MacOS/Linux)
 
 Check [Docker command line basics](https://docs.docker.com/engine/reference/commandline/cli/#examples) for various docker operations in the command line.
 
@@ -114,7 +134,7 @@ ArchiveSpark Github page also provides some good [Documentations and Recipies](h
 
 Other than running code in Zeppelin, you can also run your code through `spark-shell` within Docker. (This is recommended before you run any code on DLRL cluster) We have prepared one example `ArchiveSpark_HtmlText_extraction.scala` in `share_dir`.
 
-1. Package your code into one scala script:
+1. Package (copy) your code into one scala script:
 
     `ArchiveSpark_HtmlText_extraction.scala`
 
