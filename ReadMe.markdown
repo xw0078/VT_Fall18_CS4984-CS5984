@@ -1,6 +1,6 @@
 # Process Web Archive with ArchiveSpark
 
-Supplemental information on ArchiveSpark for course CS4984/CS5984: Big Data Text Summarization, Fall2018, Virginia Tech.
+# Supplemental information on ArchiveSpark for course CS4984/CS5984: Big Data Text Summarization, Fall2018, Virginia Tech.
 
 Things you will learn about:
 Github, Docker, Zeppelin, ArchiveSpark, Spark.
